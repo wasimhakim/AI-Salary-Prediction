@@ -6,9 +6,9 @@ class Brain:
   b = 0
   learning_rate = 0.00001
 
-  def __init__(self, experience, salary):
-    self.experience = experience
-    self.salary = salary
+  def __init__(self, salary_data):
+    self.experience = np.array(salary_data['exp(in months)'][:900])
+    self.salary = np.array(salary_data['salary(in thousands)'][:900])
     self.data_size = len(self.experience)
   
   def predict(self, exp = None):
