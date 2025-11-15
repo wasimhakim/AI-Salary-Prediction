@@ -4,10 +4,19 @@ from brain import Brain
 salary_data = pd.read_csv('./data/Experience-Salary.csv')
 
 brain = Brain(salary_data)
-
-for x in range(1000):
+m = 100
+for x in range(m):
   brain.train()
 
-guess = brain.predict(31.10)
-print(guess, brain.compute_cost(guess))
-brain.visualize()
+while True:
+  print("1. Predict - 2. Visualize")
+  choice = int(input("Enter your choice: "))
+  match choice:
+    case 1:
+      experience = float(input("Enter experience: "))
+      guess = brain.predict(experience)
+      print("Salary: ", guess)
+    case 2:
+      brain.visualize()
+    case _:
+      break;

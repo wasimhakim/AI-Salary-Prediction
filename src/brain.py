@@ -4,7 +4,7 @@ import numpy as np
 class Brain:
   w = 0
   b = 0
-  learning_rate = 0.00001
+  learning_rate = 0.0001
 
   def __init__(self, salary_data):
     self.experience = np.array(salary_data['exp(in months)'][:900])
@@ -35,5 +35,5 @@ class Brain:
     plt.xlabel('Experience (in months)')
     plt.ylabel('Salary (in thousands)')
     plt.title('Experience vs Salary')
-    plt.plot(self.experience, self.predict())
+    plt.plot(self.experience, self.predict(), color='red')
     plt.show()
